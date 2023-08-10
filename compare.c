@@ -7,7 +7,7 @@ int main(void)
     int y = get_int("what's y? ");
 
     if (x < y)
-    (
+    {
         printf("is less than y\n");
-    )
+    }
 }
