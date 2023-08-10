@@ -18,4 +18,4 @@ int main(void)
     {
         printf("x is equal to y\n");
     }
-
+}
