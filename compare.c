@@ -1,0 +1,13 @@
+#include <cs50.h>
+#include <stdio.h>
+
+int main(void)
+{
+    int x = get_int("what's x?");
+    int x = get_int("what's y?");
+
+    if (x < y)
+    (
+        printf("is less than y\n");
+    )
+}
