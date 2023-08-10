@@ -8,7 +8,7 @@ int main(void)
 
     if (x < y)
     {
-        printf("is less than y\n");
+        printf("x is less than y\n");
     }
     else if ( x > y )
     {
