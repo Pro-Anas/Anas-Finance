@@ -3,8 +3,8 @@
 
 int main(void)
 {
-    int x = get_int("what's x?");
-    int x = get_int("what's y?");
+    int x = get_int("what's x? ");
+    int y = get_int("what's y? ");
 
     if (x < y)
     (
