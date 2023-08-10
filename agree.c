@@ -11,6 +11,6 @@ int main(void)
   }
   else if (c == 'n')
   {
-    printf("not agreed.\n");
+    printf("Not agreed.\n");
   }
 }
