@@ -1,4 +1,4 @@
-#inclide <stdio.h>
+#inclumade <stdio.h>
 
 int main(void)
 {
