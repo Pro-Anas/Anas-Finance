@@ -2,7 +2,8 @@
 
 int main(void)
 {
-    while (i < 3)
+    int i = 0;
+    while (i < 30)
     {
         printf("meow\n");
         i++;
