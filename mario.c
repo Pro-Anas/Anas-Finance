@@ -3,6 +3,7 @@
 
 int main(void)
 {
+   // Get size of grid
    int n;
    do
    {
