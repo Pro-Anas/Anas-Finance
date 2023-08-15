@@ -6,5 +6,6 @@ int main(void)
     long x = get_long("x: ");
     long y = get_int("y: ");
 
-    printf("%li\n" , x + y);
+double z = (double) x / (double) y;
+    printf("%.20f\n" , z);
 }
