@@ -10,7 +10,7 @@ int main(void)
     {
         start = get_int("starting Population: ");
     }
-    while(start < 9);
+    while (start < 9);
 
     // TODO: Prompt for end size
     int end;
@@ -18,20 +18,20 @@ int main(void)
     {
         end = get_int("Ending Population: ");
     }
-    while(start > end);
+    while (start > end);
 
     // TODO: Calculate number of years until we reach threshold
     int years = 0;
     do
     {
-       start = start + (start/3) - (start/4);
-       years++;
+        start = start + (start / 3) - (start / 4);
+        years++;
     }
-    while(start < end);
+    while (start < end);
 
     // TODO: Print number of years
 
-    printf("Years: %i\n",years);
+    printf("Years: %i\n", years);
 
 }
 
