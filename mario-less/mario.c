@@ -9,4 +9,7 @@ int main(void)
   height = get_int ("Enter height here");
 }
    while (height < 1 || height > 8);
+
+   
 }
+
