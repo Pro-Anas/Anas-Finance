@@ -3,5 +3,6 @@
 
 int main(void)
 {
-printf("I got 100%%/n");
+  string name = get_string("WHAT IS YOUR NAME?\n");
+  printf("Hello,%s\n",name);
 }
