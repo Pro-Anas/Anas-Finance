@@ -79,7 +79,7 @@ int calculate_nickels(int cents)
         nickels++;
     }
     // TODO
-    return nickles;
+    return nickls;
 }
 
 int calculate_pennies(int cents)
