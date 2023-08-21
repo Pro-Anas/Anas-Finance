@@ -53,7 +53,7 @@ int calculate_quarters(int cents)
     while (cents >= 25)
     {
         cents = cents - 25;
-        quarters++
+        quarters++;
     }
     return quarters;
 }
@@ -79,7 +79,7 @@ int calculate_nickels(int cents)
         nickels++;
     }
     // TODO
-    return nikles;
+    return nickles;
 }
 
 int calculate_pennies(int cents)
