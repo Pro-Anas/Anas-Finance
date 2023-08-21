@@ -3,10 +3,10 @@
 
 int main(void)
 {
-    int hieght;
+    int height;
     do
 {
-  hight = get_int ("Enter height here");
+  height = get_int ("Enter height here");
 }
-   while (height < 1 || hieght > 8);
+   while (height < 1 || height > 8);
 }
