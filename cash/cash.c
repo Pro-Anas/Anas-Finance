@@ -67,17 +67,29 @@ int calculate_dimes(int cents)
         dimes++;
     }
     // TODO
-    return 0;
+    return dimes;
 }
 
 int calculate_nickels(int cents)
 {
+  int nickels = 0;
+    while (cents >= 5)
+    {
+        cents = cents - 5;
+        nickels++;
+    }
     // TODO
-    return 0;
+    return nikles;
 }
 
 int calculate_pennies(int cents)
 {
+  int dimes = 0;
+    while (cents >= 1)
+    {
+        cents = cents - 1;
+        pennies++;
+    }
     // TODO
-    return 0;
+    return pennies;
 }
