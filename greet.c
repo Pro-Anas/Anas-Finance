@@ -4,5 +4,4 @@
 int main(int argc, string argv[])
 {
 
-    string name = get_string("WHAT IS YOUR NAME?\n");
-    printf("Hello,%s\n", name);
+ printf("hello,%s\n", argv[1],argv[2])
