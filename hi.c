@@ -4,5 +4,7 @@ int main(void)
 {
     char c1 = 'H';
     char c2 = 'I';
-    char c3 = '!'
+    char c3 = '!';
+
+    printf("%c%c%c\n", )
 }
