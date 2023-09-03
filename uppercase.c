@@ -14,7 +14,7 @@ int main(void)
         }
         else
         {
-            printf("%c", s[i])
-                    }
+            printf("%c", s[i]);
+        }
     }
 }
