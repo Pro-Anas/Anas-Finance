@@ -4,7 +4,7 @@
 
 int main(void)
 {
-   string name = get_string("what's your name ?);
+   string name = get_string("what's your name ?");
    int n = strlen(name);
    printf("%i\n", n);
 }
