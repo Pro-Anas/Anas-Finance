@@ -19,6 +19,7 @@ int main(void)
     int score2 = compute_score(word2);
 
     // TODO: Print the winner
+    if (score1 > s)
 }
 
 int compute_score(string word)
@@ -34,9 +35,10 @@ int compute_score(string word)
        score = score + POINTS[word[i] - 65];
     }
 
-    if
+    if (islower(word[i]))
     {
          (word[i] > 97 && word[i] < 122)
     }
     }
+    return score;
 }
