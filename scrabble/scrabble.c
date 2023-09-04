@@ -26,7 +26,7 @@ int main(void)
 
     else
     {
-        printf( score 2 > score 1)
+        printf(score2 > score1)
         {
             printf("player 2 wins!");
         }
