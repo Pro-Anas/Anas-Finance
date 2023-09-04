@@ -34,7 +34,7 @@ int main(void)
             printf("Tie");
         }
     }
-}
+
 
 int compute_score(string word)
 {
@@ -42,7 +42,7 @@ int compute_score(string word)
 
     int score = 0;
 
-    for (int i = 0; i < strlen(word)); i++)
+    for (int i = 0; i < strlen(word); i++)
     {
     if (isupper(word[i]))
     {
