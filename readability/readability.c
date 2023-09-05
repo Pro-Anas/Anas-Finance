@@ -12,7 +12,7 @@ int main(void)
    int words = 1;
    int sentences = 0;
 
-   for (int i = < strlen(text); i++)
+   for (int i = 0; i < strlen(text); i++)
 {
    if (isalpha(text[i]))
     {
@@ -24,7 +24,7 @@ int main(void)
       words++;
    }
 
-   else if (texr[i] == '.' || text[i] == '?' || text == '!')
+   else if (text[i] == '.' || text[i] == '?' || text == '!')
    {
        sentences++;
    }
