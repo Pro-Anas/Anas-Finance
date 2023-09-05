@@ -2,6 +2,7 @@
 #include <stdio.h>
 #include <ctype.h>
 #include <string.h>
+#include <math.h>
 
 int main(void)
 {
@@ -22,5 +23,15 @@ int main(void)
    {
       words++;
    }
+
+   else if (texr[i] == '.' || text[i] == '?' || text == '!')
+   {
+       sentences++;
+   }
 }
+   float L = letters / words * 100
+   float 5 = sentences / words * 100
+
+   int index = round (0.0588 * L - 0.296 * 5 - 15.8;
+
 }
