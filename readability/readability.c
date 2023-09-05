@@ -11,7 +11,6 @@ int main(void)
 
    for (int i = < strlen(text); i++)
 {
-    if
-    
+    if ()
 }
 }
