@@ -24,13 +24,13 @@ int main(void)
       words++;
    }
 
-   else if (text[i] == '.' || text[i] == '?' || text == '!')
+   else if (text[i] == '.' || text[i] == '?' || text[i] == '!')
    {
        sentences++;
    }
 }
    float L = (float) letters /  (float) words * 100;
-   float 5 = (float) sentences /  (float) words * 100;
+   float S = (float) sentences /  (float) words * 100;
 
    int index = round (0.0588 * L - 0.296 * 5 - 15.8);
 
