@@ -29,6 +29,7 @@ int main(void)
             sentences++;
         }
     }
+    
     float L = (float) letters / (float) words * 100;
     float S = (float) sentences / (float) words * 100;
 
