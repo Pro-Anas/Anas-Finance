@@ -22,7 +22,7 @@ int main(int argc, string argv[])
     }
     }
 
-    int k = atoi(argv[i]);
+    int k = atoi(argv1i]);
 
     string plaintext = get_string("Plaintext: ");
     printf("Ciphertext: ");
