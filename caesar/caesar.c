@@ -21,7 +21,7 @@ int main(int argc, string argv[])
         printf("Usage: ./caesar key");
         return 1;
     }
-    
+
 
     int k = atoi(argv[1]);
 
@@ -41,8 +41,9 @@ int main(int argc, string argv[])
        }
        else
        {
-        printf("%c , plaintext[j]");
+        printf("%c" , plaintext[j]);
        }
+    }
 
        printf("\n");
 
