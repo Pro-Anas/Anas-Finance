@@ -25,7 +25,10 @@ int main(int argc, string argv[])
     string plaintext = get_string("Plaintext: ");
     printf("Ciphertext: ");
 
-    for ( int j = 0; j < strlen(plaintext))
+    for ( int j = 0; j < strlen(plaintext); j++)
+    {
+         printf("%c" , plaintext[])
+    }
 
     }
 
