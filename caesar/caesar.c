@@ -43,6 +43,7 @@ int main(int argc, string argv[])
         printf("%c , plaintext[j]");
        }
 
+       printf("\n");
 
     }
 
