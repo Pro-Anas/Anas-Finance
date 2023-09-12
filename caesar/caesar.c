@@ -23,7 +23,9 @@ int main(int argc, string argv[])
     int k = atoi(argv[i]);
 
     string plaintext = get_string("Plaintext: ");
-    printf("Cipher)
+    printf("Ciphertext: ");
+
+    for ( int j = 0; j < strlen(plaintext))
 
     }
 
