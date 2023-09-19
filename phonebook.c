@@ -4,5 +4,6 @@
 
 int main(void)
 {
-    
+   string names [] = {"Anas", "khaled"};
+   string numbers [] = {"996+ 505379004", 966+}
 }
