@@ -14,4 +14,7 @@ int main(void)
         printf ("Found %s\n", numbers[i]);
         return 0;
      }
+
+   }
+   printf(Not found)
 }
