@@ -13,7 +13,11 @@ int main(void)
 {
    person people[2];
 
-   people[0]
+   people[0].name = "Anas";
+   people[0].number = "966+ 505379004";
+
+   people[0].name = "Khaled";
+   people[0].number = "966+ 569316898";
 
 
 int main(void)
