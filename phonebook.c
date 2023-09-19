@@ -8,4 +8,9 @@ int main(void)
    string numbers [] = {"996+ 505379004", "966+ 569316898"};
    string name = get_string ("Name ");
    for (int i = 0; i < 2; i++)
+   {
+     if (strcmp(names[i], name) == 0)
+     {
+        printf (Found %s)
+     }
 }
