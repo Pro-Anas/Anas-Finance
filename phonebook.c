@@ -20,8 +20,6 @@ int main(void)
    people[0].number = "966+ 569316898";
 
 
-int main(void);
-
    string name = get_string ("Name ");
    for (int i = 0; i < 2; i++)
    {
