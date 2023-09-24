@@ -11,7 +11,7 @@ int main(void)
 
 void draw(int n)
 {
-    for (int i = 0; j < i + 1; j++)
+    for (int i = 0; i < n ; i++)
     {
         printf("#");
     }
