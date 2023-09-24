@@ -2,6 +2,7 @@
 #include <stdio.h>
 #include <string.h>
 
+void draw(int n);
 int main(void)
 {
     int height = get_int("Hieght: ");
