@@ -16,8 +16,8 @@ int main(void)
    people[0].name = "Anas";
    people[0].number = "966+ 505379004";
 
-   people[0].name = "Khaled";
-   people[0].number = "966+ 569316898";
+   people[1].name = "Khaled";
+   people[1].number = "966+ 569316898";
 
 
    string name = get_string ("Name ");
