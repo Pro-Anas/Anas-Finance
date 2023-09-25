@@ -1,11 +1,11 @@
-sort1 uses: TODO
+sort1 uses: Bubble sort
 
-How do you know?: TODO
+How do you know?: bec. it runs the fastest on the sorted list
 
-sort2 uses: TODO
+sort2 uses: Merge sort
 
-How do you know?: TODO
+How do you know?: bec. it runs the fastest on the unsorted list
 
-sort3 uses: TODO
+sort3 uses: Selection sort
 
-How do you know?: TODO
+How do you know?: it the only option left and it takes almost the same amount of time on sorted and unsorted list
