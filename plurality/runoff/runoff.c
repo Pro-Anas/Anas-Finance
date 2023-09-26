@@ -128,6 +128,14 @@ int main(int argc, string argv[])
 bool vote(int voter, int rank, string name)
 {
     // TODO
+    for (int i = 0; i < candidate_count; i++)
+    {
+        if (strcmp(name, candidates[i].name)== 0)
+        {
+            prefrences[voter][rank] = i;
+            return true;
+        }
+    }
     return false;
 }
 
@@ -135,6 +143,27 @@ bool vote(int voter, int rank, string name)
 void tabulate(void)
 {
     // TODO
+    int j = 0;
+    for (int i = 0; i < voter_count; i++)
+    {
+        if (candidates[prefrences[i][j]].eliminated == false)
+        {
+            candidates[prefrences[i][j]].votes++;
+        }
+        else
+        {
+          while (j < candidate_count)
+          {
+            j++;
+            if (candidates[preferences[i][j]].eliminated == false)
+            {
+                candidates[prefrences[i][j]].votes++;
+                break;
+            }
+          }
+          j=0;
+        }
+    }
     return;
 }
 
@@ -142,6 +171,14 @@ void tabulate(void)
 bool print_winner(void)
 {
     // TODO
+    for (int i = 0; i < candidate_count; i++)
+    {
+        if (candidates[i].elimanated == false && candidates[i].votes > voter_count / 2)
+        {
+           printf("%s\n", candidates[i].name);
+           return true;
+        }
+    }
     return false;
 }
 
@@ -149,6 +186,7 @@ bool print_winner(void)
 int find_min(void)
 {
     // TODO
+    
     return 0;
 }
 
