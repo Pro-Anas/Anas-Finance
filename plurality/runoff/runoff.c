@@ -152,7 +152,7 @@ void tabulate(void)
             int voter_preference = preferences[voter][rank];
             if (candidates[voter_preference].eliminated == false)
             {
-                candidates[voter_preference].votes ++;
+                candidates[voter_preference].votes++;
                 break;
             }
         }
@@ -165,7 +165,7 @@ void tabulate(void)
 bool print_winner(void)
 {
     // TODO
-    int majority = voter_count /2;
+    int majority = voter_count / 2;
     for (int i = 0; i < candidate_count; i++)
     {
        if (candidates[i].votes > majority)
