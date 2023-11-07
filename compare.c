@@ -3,19 +3,19 @@
 
 int main(void)
 {
-    int x = get_int("what's x? ");
-    int y = get_int("what's y? ");
+    string s = get_string("s: ");
+    string t = get_string("t: ");
 
-    if (x < y)
+    if (s == t)
     {
-        printf("x is less than y\n");
+        printf("same\n");
     }
-    else if ( x > y )
+    else if ( s > t )
     {
-        printf("x is greater than y\n");
+        printf("s is greater than t\n");
     }
     else
     {
-        printf("x is equal to y\n");
+        printf("s less than t\n");
     }
 }
