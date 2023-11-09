@@ -18,6 +18,9 @@ int main(void)
 
     if (strlen(t) > 0)
     {
-        t[0] = 
+        t[0] = toupper(t[0]);
     }
+
+    printf("s: %s\n" , s);
+    printf("t: )
 }
