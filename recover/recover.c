@@ -52,7 +52,9 @@ while (fread(buffer,BLOCK_SIZE, 1, raw_file) == 1)
     }
     if (found_jpg)
     {
-        fwrite(buffer,)
+        fwrite(buffer, BLOCK_SIZE, 1, outptr);
     }
+
     }
+    
 }
