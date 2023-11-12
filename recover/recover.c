@@ -25,8 +25,8 @@ int main(int argc, char *argv[])
 bool found_jpg = false;
 int jpg_count = 0;
 uint8_t buffer[BLOCK_SIZE];
-char jpg_name[8]
-FILE *outptr = NULL
+char jpg_name[8];
+FILE *outptr = NULL;
 
 while (fread(buffer,BLOCK_SIZE, 1, raw_file) == 1)
 {
@@ -42,7 +42,7 @@ while (fread(buffer,BLOCK_SIZE, 1, raw_file) == 1)
         }
         sprintf(jpg_name, "%03d.jpg", jpg_count);
         outptr = fopen(jpg_name,"w");
-        if (outptr == Null)
+        if (outptr == NULL)
         {
             fclose(raw_file);
             printf("Could not create %s. \n", jgp_name);
