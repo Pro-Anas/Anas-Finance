@@ -28,5 +28,8 @@ uint8_t buffer[BLOCK_SIZE];
 char jpg_name[8]
 FILE *outptr = NULL
 
-while 
+while (fread(buffer,BLOCK_SIZE, 1, raw_file) == 1)
+{
+    
+}
 }
