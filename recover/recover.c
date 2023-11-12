@@ -20,5 +20,7 @@ int main(int argc, char *argv[])
     return 1;
    }
 
-bool found_jpg = false
+bool found_jpg = false;
+int jpg_count = 0;
+uint8_t buffer[BLOCK_]
 }
