@@ -1,6 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h>
+#include <stdint.h>
+
 #define BLOCK_SIZE 512
 
 
@@ -25,4 +27,6 @@ int jpg_count = 0;
 uint8_t buffer[BLOCK_SIZE];
 char jpg_name[8]
 FILE *outptr = NULL
+
+while 
 }
