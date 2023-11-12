@@ -1,7 +1,9 @@
 #include <stdio.h>
 #include <stdlib.h>
-#iclude
- #define BLOCK_SIZE 512
+#include <stdbool.h>
+#define BLOCK_SIZE 512
+
+
 int main(int argc, char *argv[])
 {
    if (argc != 2)
@@ -18,4 +20,5 @@ int main(int argc, char *argv[])
     return 1;
    }
 
+bool found_jpg = false
 }
