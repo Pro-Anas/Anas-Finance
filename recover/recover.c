@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-
+#iclude
  #define BLOCK_SIZE 512
 int main(int argc, char *argv[])
 {
@@ -14,6 +14,8 @@ int main(int argc, char *argv[])
    FILE * raw_file = fopen(file, "r");
    if (raw_file == NULL)
    {
-    printf("could not open %s")
+    printf("could not open %s.\n",file);
+    return 1;
    }
+
 }
