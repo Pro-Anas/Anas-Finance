@@ -42,7 +42,11 @@ while (fread(buffer,BLOCK_SIZE, 1, raw_file) == 1)
         }
         sprintf(jpg_name, "%03d.jpg", jpg_count);
         outptr = fopen(jpg_name,"w");
-        if ()
+        if (outptr == Null)
+        {
+            fclose(raw_file);
+            printf("Could not create %s. \n")
+        }
     }
 }
 }
