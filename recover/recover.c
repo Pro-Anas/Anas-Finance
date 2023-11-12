@@ -56,5 +56,10 @@ while (fread(buffer,BLOCK_SIZE, 1, raw_file) == 1)
     }
 
     }
-    
+    fclose(raw_file);
+    if (found_jpg)
+    {
+        fclose(outptr);
+    }
+    return 0;
 }
