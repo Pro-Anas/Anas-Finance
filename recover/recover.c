@@ -34,8 +34,13 @@ while (fread(buffer,BLOCK_SIZE, 1, raw_file) == 1)
     {
         if (found_jpg)
         {
-            fclose(outptr)
+            fclose(outptr);
         }
+        else
+        {
+            found_jpg = true;
+        }
+        sprintf
     }
 }
 }
