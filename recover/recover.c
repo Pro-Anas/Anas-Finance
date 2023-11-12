@@ -22,5 +22,7 @@ int main(int argc, char *argv[])
 
 bool found_jpg = false;
 int jpg_count = 0;
-uint8_t buffer[BLOCK_]
+uint8_t buffer[BLOCK_SIZE];
+char jpg_name[8]
+FILE *outptr = NULL
 }
