@@ -75,13 +75,13 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
                         int currentX = i + x;
                         int currentY = j + y;
 
-                        if ( currrentX < 0; || currentX > (height - 1) || currentY < 0 || currentY > (width -1))
+                        if ( currrentX < 0 || currentX > (height - 1) || currentY < 0 || currentY > (width -1))
                         {
                             continue
                         }
                         totalRed += image[currentX][currentY].rgbtRed;
                         totalGreen += image[currentX][currentY].rgbtGreen;
-                        totalBlue += image[currentX][currentY].rgbtBlue
+                        totalBlue += image[currentX][currentY].rgbtBlue;
 
                         counter++;
                     }
