@@ -45,8 +45,11 @@ while (fread(buffer,BLOCK_SIZE, 1, raw_file) == 1)
         if (outptr == Null)
         {
             fclose(raw_file);
-            printf("Could not create %s. \n")
+            printf("Could not create %s. \n", jgp_name);
+            return 3;
         }
+        jgp_count++;
+    }
     }
 }
 }
