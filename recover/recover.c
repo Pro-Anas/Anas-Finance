@@ -30,6 +30,6 @@ FILE *outptr = NULL
 
 while (fread(buffer,BLOCK_SIZE, 1, raw_file) == 1)
 {
-    
+    if (buffer[0] == 0xff && buffer[1] == 0xd8 && buffer[2] == 0xff && (buffer[3] ))
 }
 }
