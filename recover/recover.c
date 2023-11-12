@@ -40,7 +40,8 @@ while (fread(buffer,BLOCK_SIZE, 1, raw_file) == 1)
         {
             found_jpg = true;
         }
-        sprintf
+        sprintf(jpg_name, "%03d.jpg", jpg_count);
+        outptr = fopen()
     }
 }
 }
