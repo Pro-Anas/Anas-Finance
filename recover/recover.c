@@ -11,5 +11,9 @@ int main(int argc, char *argv[])
    }
 
    char *file = argv[1];
-   FILE * raw_file
+   FILE * raw_file = fopen(file, "r");
+   if (raw_file == NULL)
+   {
+    printf("could not open %s")
+   }
 }
