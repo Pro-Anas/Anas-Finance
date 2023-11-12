@@ -50,6 +50,9 @@ while (fread(buffer,BLOCK_SIZE, 1, raw_file) == 1)
         }
         jgp_count++;
     }
+    if (found_jpg)
+    {
+        fwrite(buffer,)
     }
-}
+    }
 }
