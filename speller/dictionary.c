@@ -2,7 +2,11 @@
 
 #include <ctype.h>
 #include <stdbool.h>
-
+#include <stdlib.h>
+#include <stdint.h>
+#include <strings.h>
+#include <string.h>
+#include <stdio.h>
 
 #include "dictionary.h"
 
@@ -14,7 +18,7 @@ typedef struct node
 } node;
 
 // TODO: Choose number of buckets in hash table
-const unsigned int N = 26;
+const unsigned int N = 100000;
 
 // Hash table
 node *table[N];
@@ -23,7 +27,7 @@ node *table[N];
 bool check(const char *word)
 {
     // TODO
-    return false;
+    int hash_value = [hash_value];
 }
 
 // Hashes word to a number
