@@ -67,7 +67,8 @@ bool load(const char *dictionary)
 
    while(fscanf(file,"%s", next_word)!= EOF)
    {
-    
+    node *new_node = mallox(sizeof(node));
+    if (new_node)
    }
 }
 
