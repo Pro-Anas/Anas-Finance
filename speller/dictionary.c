@@ -75,7 +75,7 @@ bool load(const char *dictionary)
 
     strcpy(new_node ->word, next_word);
 
-    int hash
+    int hash_
    }
 }
 
