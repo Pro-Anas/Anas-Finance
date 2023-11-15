@@ -77,7 +77,11 @@ bool load(const char *dictionary)
 
     int hash_value = hash(next_word);
 
-    new_node->next
+    new_node->next = table[hash_value];
+
+    table[hash_value] = new_node;
+    word_count++;
+    
    }
 }
 
