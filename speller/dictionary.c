@@ -2,11 +2,11 @@
 
 #include <ctype.h>
 #include <stdbool.h>
-#include <stdlib.h>
 #include <stdint.h>
-#include <strings.h>
-#include <string.h>
 #include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <strings.h>
 
 #include "dictionary.h"
 
@@ -23,7 +23,7 @@ const unsigned int N = 100000;
 // Hash table
 node *table[N];
 
-int word_count =0;
+int word_count = 0;
 
 // Returns true if word is in dictionary, else false
 bool check(const char *word)
@@ -33,9 +33,9 @@ bool check(const char *word)
 
     node *n = table[hash_value];
 
-    while (n !=NULL)
+    while (n != NULL)
     {
-        if(strcasecmp(word, n->word) == 0)
+        if (strcasecmp(word, n->word) == 0)
         {
             return true;
         }
@@ -48,7 +48,7 @@ bool check(const char *word)
 unsigned int hash(const char *word)
 {
     // TODO: Improve this hash function
-     long sum = 0;
+    long sum = 0;
 
     for (int i = 0; i < strlen(word); i++)
     {
@@ -61,34 +61,33 @@ unsigned int hash(const char *word)
 bool load(const char *dictionary)
 {
     // TODO
-   FILE *file = fopen(dictionary, "r");
-   if (file == NULL)
-   {
-    return false;
-   }
-
-   char next_word[LENGTH + 1];
-
-   while(fscanf(file,"%s", next_word)!= EOF)
-   {
-    node *new_node = malloc(sizeof(node));
-    if (new_node == NULL)
+    FILE *file = fopen(dictionary, "r");
+    if (file == NULL)
     {
         return false;
     }
 
-    strcpy(new_node ->word, next_word);
+    char next_word[LENGTH + 1];
 
-    int hash_value = hash(next_word);
+    while (fscanf(file, "%s", next_word) != EOF)
+    {
+        node *new_node = malloc(sizeof(node));
+        if (new_node == NULL)
+        {
+            return false;
+        }
 
-    new_node->next = table[hash_value];
+        strcpy(new_node->word, next_word);
 
-    table[hash_value] = new_node;
-    word_count++;
+        int hash_value = hash(next_word);
 
-   }
-   fclose(file);
-   return true;
+        new_node->next = table[hash_value];
+
+        table[hash_value] = new_node;
+        word_count++;
+    }
+    fclose(file);
+    return true;
 }
 
 // Returns number of words in dictionary if loaded, else 0 if not yet loaded
@@ -109,11 +108,11 @@ bool unload(void)
 
         while (n != NULL)
         {
-            n = n-> next;
+            n = n->next;
 
             free(temp);
 
-            temp =n;
+            temp = n;
         }
     }
 
