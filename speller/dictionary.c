@@ -28,20 +28,40 @@ bool check(const char *word)
 {
     // TODO
     int hash_value = [hash_value];
+
+    while (n !=NULL)
+    {
+        if(strcasecmp(word, n->word) == 0)
+        {
+            return true;
+        }
+        n = n->next;
+    }
+    return false;
 }
 
 // Hashes word to a number
 unsigned int hash(const char *word)
 {
     // TODO: Improve this hash function
-    return toupper(word[0]) - 'A';
+     long sum = 0;
+
+    for (int i = 0; i < strlen(word); i++)
+    {
+        sum += tolower(word[i]);
+    }
+    return sum % N
 }
 
 // Loads dictionary into memory, returning true if successful, else false
 bool load(const char *dictionary)
 {
     // TODO
-    return false;
+   FILE *file = fopen(dictionary, "r");
+   if (file == NULL)
+   {
+    
+   }
 }
 
 // Returns number of words in dictionary if loaded, else 0 if not yet loaded
