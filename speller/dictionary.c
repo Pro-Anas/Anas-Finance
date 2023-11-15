@@ -103,7 +103,11 @@ bool unload(void)
 
         while (n != NULL)
         {
-            
+            n = n-> next;
+
+            free(temp);
+
+            temp =n;
         }
     }
 }
