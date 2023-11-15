@@ -27,7 +27,9 @@ node *table[N];
 bool check(const char *word)
 {
     // TODO
-    int hash_value = [hash_value];
+    int hash_value = hash(word);
+
+    node *n = table[hash_value];
 
     while (n !=NULL)
     {
@@ -50,7 +52,7 @@ unsigned int hash(const char *word)
     {
         sum += tolower(word[i]);
     }
-    return sum % N
+    return sum % N;
 }
 
 // Loads dictionary into memory, returning true if successful, else false
