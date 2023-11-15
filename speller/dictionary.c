@@ -98,6 +98,12 @@ bool unload(void)
     // TODO
     for (int i = 0; i < N; i++)
     {
-        node *n = table[i]
+        node *n = table[i];
+        node *temp = n;
+
+        while (n != NULL)
+        {
+            
+        }
     }
 }
