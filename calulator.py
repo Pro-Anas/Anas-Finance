@@ -6,4 +6,4 @@ y = int(input("y: "))
 print(x + y)
 
 z = x / y
-print(f"{z}")
+print(f"{z:.50f}")
