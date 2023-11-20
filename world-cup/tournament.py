@@ -14,6 +14,10 @@ def main():
     if len(sys.argv) != 2:
         sys.exit("Usage: python tournament.py FILENAME")
 
+
+        teams = []
+        filename = sys.argv[1]
+
     teams = []
     # TODO: Read teams into memory from file
     filename = sys.argv[1]
@@ -22,7 +26,7 @@ def main():
         reader = csv.DictReader(f)
         for row in reader:
             teams.append((
-                "team": row["team"]
+                "team": row["team"],
                 "rating": int(row["rating"])
             ))
 
@@ -34,7 +38,7 @@ def main():
             counts[winner] += 1
         else:
             counts[winner] = 1
-            
+
         else:
             counts[winner] = 1
 
