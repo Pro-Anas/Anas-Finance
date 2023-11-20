@@ -1,20 +1,18 @@
-#def get_int(prompt):
+# TODO
+def get_int (prompt):
+
     while True:
         try:
-            number = int(input(prompt))
-            if 1 <= number <= 8:
-                return number
-            else:
-                print("Height must be between 1 and 8.")
+
+            return int(input(prompt))
         except ValueError:
-            print("Invalid input. Please input a positive integer.")
+            print("Invalid input, Please input a positve integer,")
 
-def main():
-    height = get_int("Height: ")
+            height = get_int("Height: ")
 
-    for i in range(1, height + 1):
-        print(" " * (height - i) + "#" * i)
+            while height < 1 or height > 8:
+                print ("Height must be between 1 and 8")
+                height = het_int("Heigth: ")
 
-if __name__ == "__main__":
-    main()
-
+                for in in range(1, height + 1):
+                    print(" " * (height - i) + "#" * i)
