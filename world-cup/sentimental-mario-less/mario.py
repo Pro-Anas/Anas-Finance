@@ -11,7 +11,7 @@ def get_int (prompt):
 
             while height < 1 or height > 8:
                 print ("Height must be between 1 and 8")
-                height = het_int("Heigth: ")
+                height = get_int("Heigth: ")
 
-                for in in range(1, height + 1):
+                for i in range(1, height + 1):
                     print(" " * (height - i) + "#" * i)
