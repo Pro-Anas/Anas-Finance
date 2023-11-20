@@ -6,6 +6,7 @@ import random
 # Number of simulations to run
 N = 1000
 
+
 def main():
     # Ensure correct usage
     if len(sys.argv) != 2:
@@ -30,11 +31,13 @@ def main():
     for team in sorted(counts, key=lambda team: counts[team], reverse=True):
         print(f"{team}: {counts[team] * 100 / N:.1f}% chance of winning")
 
+
 def simulate_game(team1, team2):
     rating1 = team1["rating"]
     rating2 = team2["rating"]
     probability = 1 / (1 + 10 ** ((rating2 - rating1) / 600))
     return random.random() < probability
+
 
 def simulate_round(teams):
     winners = []
@@ -45,10 +48,12 @@ def simulate_round(teams):
             winners.append(teams[i + 1])
     return winners
 
+
 def simulate_tournament(teams):
     while len(teams) > 1:
         teams = simulate_round(teams)
     return teams[0]["team"]  # Assuming "team" is the key for the team's name
+
 
 if __name__ == "__main__":
     main()
