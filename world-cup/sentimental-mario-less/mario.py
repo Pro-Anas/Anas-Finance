@@ -3,10 +3,9 @@ def get_int (prompt):
 
     while True:
         try:
-
             return int(input(prompt))
         except ValueError:
-            print("Invalid input, Please input a positve integer,")
+            print("Invalud input, Please input a positve integer,")
 
             height = get_int("Height: ")
 
