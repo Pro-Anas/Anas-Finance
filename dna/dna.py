@@ -10,8 +10,9 @@ def main():
         sys.exit(1)
 
     # TODO: Read database file into a variable
-    with open(sys.argv[2],"r") as sequence_file:
-        sequence = sequence_file.read()
+      with open(sys,argv[1],"r") as database_file:
+         reader = csv.DictReader(database_file)
+         database = [row for row in reader]
 
     # TODO: Read DNA sequence file into a variable
     str_counts = {}
@@ -19,6 +20,9 @@ def main():
         if key == "name":
                        =
           continue
+
+      with open(sys.argv[2],"r") as sequence_file:
+        sequence = sequence_file.read()
     str_counts[key] = longest_match(sequence, key)
 
     # TODO: Find longest match of each STR in DNA sequence
@@ -38,6 +42,12 @@ def main():
 
          def longest_match(sequence, subsequence):
               """return leght if longest run of substance in sequence."""
+
+                str_counts = {}
+    for key on database[0].keys():
+        if key == "name":
+                       =
+          continue
 
     # TODO: Check database for matching profiles
 
