@@ -1,2 +1,4 @@
 # TODO
-from Cs50 import get_float
+name = input("What is your name?" )
+print("Hello, ", name)
+
