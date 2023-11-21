@@ -22,7 +22,22 @@ def main():
     str_counts[key] = longest_match(sequence, key)
 
     # TODO: Find longest match of each STR in DNA sequence
-    
+     for row in database:
+         match =True
+         for key in row.keys():
+         if key == "name":
+              continue
+         if int(row[key]) != str_counts[key]:
+              match = False
+              break
+         if match:
+              print(row["name"])
+              return
+
+         print("No Match")
+
+         def longest_match(sequence, subsequence):
+              """return leght if longest run of substance in sequence."""
 
     # TODO: Check database for matching profiles
 
