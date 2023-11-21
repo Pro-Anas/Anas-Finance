@@ -19,7 +19,7 @@ def main():
         if key == "name"
                        =
           continue
-    str
+    str_counts[key] = longest_match(sequence, key)
 
     # TODO: Find longest match of each STR in DNA sequence
 
