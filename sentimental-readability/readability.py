@@ -12,7 +12,7 @@ for i in text:
 
     letters += 1
         elif i == " ":
-        word +=1
+        words +=1
 
         elif i == "," or i == "!" or i == "?":
      sentences += 1
@@ -25,5 +25,5 @@ for i in text:
         elif index >= 16:
             print("Grade 16+")
 
-        else
+        else:
             print("Grade ", round(index)
