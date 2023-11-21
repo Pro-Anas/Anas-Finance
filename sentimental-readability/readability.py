@@ -1,29 +1,21 @@
-# TODO
-from Cs50 import get_string
-
-text = get_string("Text: ")
-
+text = "Your text goes here"  # Replace this with the actual text
 letters = 0
 words = 1
-setences = 0
+sentences = 0
 
 for i in text:
-      if i.isalpha():
+    if i.isalpha():
+        letters += 1
+    elif i == " ":
+        words += 1
+    elif i in [".", "!", "?"]:
+        sentences += 1
 
-    letters += 1
-        elif i == " ":
-        words +=1
+index = 0.0588 * (letters / words * 100) - 0.296 * (sentences / words * 100) - 15.8
 
-        elif i == "," or i == "!" or i == "?":
-     sentences += 1
-
-     index = 0.0588 * (letters/words*100) - 0.296 * (sentences/words*100) - 15.8
-
-        if index < 1:
-            print("Before Grade 1")
-
-        elif index >= 16:
-            print("Grade 16+")
-
-        else:
-            print("Grade ", round(index)
+if index < 1:
+    print("Before Grade 1")
+elif index >= 16:
+    print("Grade 16+")
+else:
+    print("Grade", round(index))
