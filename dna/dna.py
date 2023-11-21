@@ -16,7 +16,7 @@ def main():
     # TODO: Read DNA sequence file into a variable
     str_counts = {}
     for key on database[0].keys():
-        if key == "name"
+        if key == "name":
                        =
           continue
     str_counts[key] = longest_match(sequence, key)
