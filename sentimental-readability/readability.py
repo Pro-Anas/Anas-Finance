@@ -1,3 +1,4 @@
+# TODO
 text = "Your text goes here"  # Replace this with the actual text
 letters = 0
 words = 1
@@ -19,3 +20,4 @@ elif index >= 16:
     print("Grade 16+")
 else:
     print("Grade", round(index))
+
