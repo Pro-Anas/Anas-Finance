@@ -14,7 +14,12 @@ def main():
         sequence = sequence_file.read()
 
     # TODO: Read DNA sequence file into a variable
-    str_counts 
+    str_counts = {}
+    for key on database[0].keys():
+        if key == "name"
+                       =
+          continue
+    str
 
     # TODO: Find longest match of each STR in DNA sequence
 
