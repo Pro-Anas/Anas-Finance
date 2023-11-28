@@ -40,3 +40,10 @@ UPDATE phone_calls
 SET receiver_name = people.name
 FROM people
 WHERE phone_calls.receiver = people.phone_number;
+
+
+SELECT caller, caller_name, receiver, receiver_name FROM phone_calls
+WHERE year = 2021
+AND month = 7
+AND day = 28
+AND duration < 60;
