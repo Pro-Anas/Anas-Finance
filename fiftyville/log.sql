@@ -26,11 +26,6 @@ AND atm_location = "Leggett Street"
 AND atm_transactions.transaction_type = "withdraw";
 
 
-SELECT caller, caller_name, receiver, receiver_name FROM phone_calls
-WHERE year = 2021
-AND month = 7
-AND day = 28
-AND duration < 60;
 
 UPDATE phone_calls
 SET caller_name = people.name
