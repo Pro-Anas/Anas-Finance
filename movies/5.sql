@@ -1,3 +1,3 @@
-SELECT titles FROM movies
-WHERE name = 'Harry Poter';
-ORDER BY 
+SELECT year, title FROM movies
+WHERE title LIKE 'Harry Poter%'
+ORDER BY year ASC;
