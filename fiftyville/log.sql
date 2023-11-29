@@ -54,7 +54,7 @@ WHERE flights.origin_airport_id = airports.id;
 UPDATE flights
 SET destination_airport_id = airports.city
 FROM airports
-WHerE flights.destination_airport_id = airports.id;
+WHERE flights.destination_airport_id = airports.id;
 
 SELECT id, hour, minute, origin_airport_id, destination_airport_id
 FROM flights
