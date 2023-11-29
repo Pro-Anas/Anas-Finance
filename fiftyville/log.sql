@@ -35,7 +35,7 @@ WHERE phone_calls.caller = people.phone_number;
 UPDATE phone_calls
 SET receiver_name = people.name
 FROM people
-WHERE phone_calls.receiver = people.phone_number
+WHERE phone_calls.receiver = people.phone_number;
 
 
 
