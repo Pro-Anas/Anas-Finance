@@ -44,20 +44,11 @@ AND month = 7
 AND day = 28
 AND duration < 60;
 
-UPDATE flights
-SET origin_airport_id = airports.city
-FROM airports
-WHERE flights.origin_airport_id = airports.id;
+SELECT * FROM airports;
 
-UPDATE flights
-SET destination_airport_id = airports.city
-FROM airports
-WHERE flights.destination_airport_id = airports.id;
-
-SELECT id, hour, minute, origin_airport_id, destination_airport_id
-FROM flights
-WHERE year = 2021
-AND month = 7
-AND day = 29
-ORDER BY hour ASC
-LIMIT 1;
+SELECT f.*, origin.full_name AS origin_airport, destination.full_name AS destination_airport
+FROM flights f
+JOIN airports origin ON forigin_airport_id = origin.id
+JOIN airports destination ON f.destination_airport_id = destination.id
+WHERE origin.id = 8 AND f.year = 2021 AND f.month = 7 AND f.day = 29
+ORDER BY f.hour, f.minute;
