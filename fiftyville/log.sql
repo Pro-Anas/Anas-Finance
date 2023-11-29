@@ -50,7 +50,7 @@ UPDATE flights
 SET origin_airport_id = (
     SELECT id
     FROM airports
-    WHERE airports.city = 'SomeCityName'  -- Replace 'SomeCityName' with the actual city name
+    WHERE airports.city = 'Ney York'  -- Replace 'SomeCityName' with the actual city name
 )
 WHERE EXISTS (
     SELECT 1
