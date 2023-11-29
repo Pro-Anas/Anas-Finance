@@ -45,16 +45,32 @@ AND day = 28
 AND duration < 60;
 
 
-
+-- Update origin airport ID based on a specific city name
 UPDATE flights
-SET origin_airport_id = airports.city
-FROM airports
-WHERE flights.origin_airport_id = airports.id;
+SET origin_airport_id = (
+    SELECT id
+    FROM airports
+    WHERE airports.city = 'SomeCityName'  -- Replace 'SomeCityName' with the actual city name
+)
+WHERE EXISTS (
+    SELECT 1
+    FROM airports
+    WHERE airports.city = 'SomeCityName' AND flights.origin_airport_id = airports.id
+);
 
+-- Update destination airport ID similarly
 UPDATE flights
-SET destination_airport_id = airports.city
-FROM airports
-WHERE flights.destination_airport_id = airports.id;
+SET destination_airport_id = (
+    SELECT id
+    FROM airports
+    WHERE airports.city = 'AnotherCityName'  -- Replace 'AnotherCityName' with the actual city name
+)
+WHERE EXISTS (
+    SELECT 1
+    FROM airports
+    WHERE airports.city = 'AnotherCityName' AND flights.destination_airport_id = airports.id
+);
+
 
 SELECT id, hour, minute, origin_airport_id, destination_airport_id
 FROM flights
