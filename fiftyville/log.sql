@@ -47,7 +47,7 @@ AND duration < 60;
 UPDATE flights
 SET origin_airport_id = airports.city
 FROM airports
-WHERE flights.origin_airport_id - airports.id;
+WHERE flights.origin_airport_id = airports.id;
 
 UPDATE flights
 SET destination_airport_id = airports.city
