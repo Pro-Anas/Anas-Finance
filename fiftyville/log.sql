@@ -44,33 +44,15 @@ AND month = 7
 AND day = 28
 AND duration < 60;
 
-
--- Update origin airport ID for flights originating from New York
 UPDATE flights
-SET origin_airport_id = (
-    SELECT id
-    FROM airports
-    WHERE airports.city = 'New York'  -- Assuming city name is 'New York' in airports table
-)
-WHERE EXISTS (
-    SELECT 1
-    FROM airports
-    WHERE airports.city = 'New York' AND flights.origin_airport_id = airports.id
-);
+SET origin_airport_id = airports.city
+FROM airports
+WHERE flights.origin_airport_id - airports.id;
 
--- Update destination airport ID for flights destined for New York
 UPDATE flights
-SET destination_airport_id = (
-    SELECT id
-    FROM airports
-    WHERE airports.city = 'New York'
-)
-WHERE EXISTS (
-    SELECT 1
-    FROM airports
-    WHERE airports.city = 'New York' AND flights.destination_airport_id = airports.id
-);
-
+SET destination_airport_id = airports.city
+FROM airports
+WHERE flights.destination_airport_id = airports.id;
 
 SELECT id, hour, minute, origin_airport_id, destination_airport_id
 FROM flights
