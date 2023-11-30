@@ -2,9 +2,6 @@
 
 <html lang="en">
         <head>
-            <script>
-
-            </script>
 
         <title> hello, title </title>
 
@@ -15,11 +12,15 @@
         <button type="submit">Greet</button>
         </form>
 
+        <script>
+
         document.querySelector('form').addEventListener('sibmit',function(event){
             let name = document.querySeclector('#name').value;
             alert('hello, ' + name);
             event.preverntDefault();
            });
+
+        </script>
 
         </body>
   </html>
