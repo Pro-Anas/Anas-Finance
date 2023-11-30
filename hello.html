@@ -2,6 +2,15 @@
 
 <html lang="en">
         <head>
+            <script>
+
+              document.querySelector('form').addEventListener('sibmit',function(event){
+               let name = document.querySeclector('#name').value;
+               alert('hello, ' + name);
+               event.preverntDefault();
+              });
+
+            </script>
 
         <title> hello, title </title>
 
@@ -11,16 +20,5 @@
              <input autocomplete="off" autofocus id="name" placeholder="Name" type="text">
         <button type="submit">Greet</button>
         </form>
-
-        <script>
-
-        document.querySelector('form').addEventListener('sibmit',function(event){
-            let name = document.querySeclector('#name').value;
-            alert('hello, ' + name);
-            event.preverntDefault();
-           });
-
-        </script>
-
         </body>
   </html>
