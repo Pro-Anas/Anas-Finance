@@ -4,21 +4,22 @@
         <head>
             <script>
 
-              document.querySelector('form').addEventListener('sibmit',function(event){
-               let name = document.querySeclector('#name').value;
-               alert('hello, ' + name);
-               event.preverntDefault();
-              });
-
             </script>
 
         <title> hello, title </title>
 
         </head>
          <body>
-          <form
-        <input autocomplete="off" autofocus id="name" placeholder="Name" type="text">
+          <form>
+             <input autocomplete="off" autofocus id="name" placeholder="Name" type="text">
         <button type="submit">Greet</button>
         </form>
+
+        document.querySelector('form').addEventListener('sibmit',function(event){
+            let name = document.querySeclector('#name').value;
+            alert('hello, ' + name);
+            event.preverntDefault();
+           });
+
         </body>
   </html>
