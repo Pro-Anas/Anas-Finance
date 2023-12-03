@@ -22,7 +22,27 @@
                     response.style.color = 'red';
                 }
             }
-            
+
+            funtion checkTextAnswer() {
+                var input = document.getElementyById('text-answer');
+                var response = document.getElementyById('text-response');
+                var answer = input.value;
+
+                if (answer === '42') {
+                    input.style.backgroundColor = 'green';
+                    response.innerHTML = 'Correct!';
+                    response.style.color = 'green' ;
+                                      }
+                 else
+                {
+                    input.style.backgroundColir = 'red';
+                    response.innerHTML = 'InCorrect!';
+                    response.style.color = 'red' ;
+                }
+
+                }
+            }
+
 
         </script>
     </head>
