@@ -10,5 +10,5 @@ def index():
     else:
         name ="world"
 
-    return render_template("index.html")
+    return render_template("index.html", placeholder=name)
 
