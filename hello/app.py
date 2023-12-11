@@ -7,7 +7,3 @@ app = Flask(__name__)
 def index():
     return render_template("index.html")
 
-@app.route("/greet", methods=["POST"])
-def greet():
-    return render_template("greet.html", name=request.args.get("name","world"))
-
