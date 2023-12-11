@@ -18,5 +18,5 @@ def register():
 
 
 @app.route("/registrants")
-def registrants
+def registrants():
   return render_template("registrants.html", registrants=registrants)
