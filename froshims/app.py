@@ -7,6 +7,6 @@ def index():
     return render_template("index.html")
 
 
-@app.route("/"register)
+@app.route("/register")
 def register():
     return render_template("success.html")
