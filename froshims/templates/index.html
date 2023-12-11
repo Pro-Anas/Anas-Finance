@@ -1,11 +1,7 @@
-<!DOCTYPE html>
+{% extends "layout.html" %}
 
-<html lang="en">
-    <head>
-        <meta name="viewport" content="initial-scale=1, width=device-width">
-        <title>froshims</title>
-    </head>
-    <body>
+{% block body %}
+         <body>
          <form action="/register" method="post">
             <input autocomplete="off" autofocus name="name" placehoder="Name" type="text">
             <select>
@@ -15,5 +11,5 @@
                 <option value="Padel">Padel</option>
             </select>
             <button type="submit">Register</button>
-    </body>
-  </html>
+
+  {%e endblock %}
