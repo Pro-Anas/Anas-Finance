@@ -15,3 +15,6 @@ def register():
     sport = request.form.get("sport")
     registrants[name] = sport
     return render_template("success.html")
+
+
+@app.route("/registrants")
