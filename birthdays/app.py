@@ -37,7 +37,8 @@ def index():
     else:
 
         # TODO: Display the entries in the database on index.html
+        rows = db.execute("SELECT * FORM birthdays")
 
-        return render_template("index.html")
+        return render_template("index.html", rows=rows)
 
 
