@@ -52,9 +52,9 @@ def history():
     return apology("TODO")
 
 
-@app.route("/register", methods=["GET", "POST"])
-def register():
-    """register"""
+@app.route("/login", methods=["GET", "POST"])
+def login():
+    """Log user in"""
 
     # Forget any user_id
     session.clear()
@@ -89,7 +89,7 @@ def register():
 
     # User reached route via GET (as by clicking a link or via redirect)
     else:
-        return render_template("register.html")
+        return render_template("login.html")
 
 
 @app.route("/logout")
