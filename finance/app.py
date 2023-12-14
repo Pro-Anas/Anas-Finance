@@ -115,20 +115,33 @@ def register():
     """Register user"""
 
     session.clear()
-    
+
     if request.method == "POST":
+        # Check for username
+        if not request.form.get("username"):
+            return apology("Must provide username", 400)
 
-    if not request.form.get("username"):
-        return apology("must provide username",400)
+        # Check for password
+        elif not request.form.get("password"):
+            return apology("Must provide password", 400)
 
-    elif not request.form.get("password"):
-        return apology("must provide password",400)
+        # Check for password confirmation
+        elif not request.form.get("confirmation"):
+            return apology("Must confirm password", 400)
 
-    elif not request.form.get("confirmation"):
-        return apology("must provide password",400)
+        # Check if passwords match
+        elif request.form.get("password") != request.form.get("confirmation"):
+            return apology("Passwords do not match", 400)
 
-    elif request.form.get("password") !=request.form.get("confirmation"):
-        return apologly("password do not match ya sabk"400)
+        # Insert additional registration logic here
+        # ...
+
+        # Redirect to login or another page upon successful registration
+        return redirect("/login")  # for example
+
+    # Render registration form if method is GET
+    else:
+        return render_template("register.html")
 
      #Insert new user into database
 
