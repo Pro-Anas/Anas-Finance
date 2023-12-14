@@ -115,7 +115,7 @@ def register():
     """Register user"""
 
     session.clear()
-    if request.method == "POST"
+    if request.method == "POST":
 
     if not request.form.get("username")
 
