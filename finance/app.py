@@ -113,7 +113,23 @@ def quote():
 @app.route("/register", methods=["GET", "POST"])
 def register():
     """Register user"""
-    return apology("TODO")
+
+    session.clear()
+
+    if not request.method == "POST":
+    elif not request.form.get("username"):
+        return apology("must provide username",400)
+
+    elif not request.form.get("password"):
+        return apology("must provide password",400)
+
+    elif request.form.get("password") !=request.form.get("confirmation"):
+        return apologly("password do not match ya sabk"400)
+
+    #Query database from user
+
+    rows = db.execute("INSERT INTO users (username,hash) VALUES(?,?))"
+                      
 
 
 @app.route("/sell", methods=["GET", "POST"])
