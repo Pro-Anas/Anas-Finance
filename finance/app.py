@@ -128,9 +128,11 @@ def register():
 
      #Insert new user into database
 
-    rows = db.execute("INSERT INTO users (username,hash) VALUES(?,?))",
+    db.execute("INSERT INTO users (username,hash) VALUES(?,?))",
+               request.form.get("username"), generate_password_hash(request.form.get("password")))
 
     #Query database from user
+    
 
 
 @app.route("/sell", methods=["GET", "POST"])
