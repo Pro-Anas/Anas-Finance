@@ -117,7 +117,7 @@ def register():
     session.clear()
     if request.method == "POST":
 
-    if not request.form.get("username")
+    if not request.form.get("username"):
 
         return apology("must provide username",400)
 
