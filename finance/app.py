@@ -126,10 +126,11 @@ def register():
     elif request.form.get("password") !=request.form.get("confirmation"):
         return apologly("password do not match ya sabk"400)
 
-    #Query database from user
+     #Insert new user into database
 
-    rows = db.execute("INSERT INTO users (username,hash) VALUES(?,?))"
-                      
+    rows = db.execute("INSERT INTO users (username,hash) VALUES(?,?))",
+
+    #Query database from user
 
 
 @app.route("/sell", methods=["GET", "POST"])
