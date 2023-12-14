@@ -132,7 +132,7 @@ def register():
                request.form.get("username"), generate_password_hash(request.form.get("password")))
 
     #Query database from user
-    
+    rows = db.execute("SELECT * FROM users WHERE username = ?",request.form.get("username"))
 
 
 @app.route("/sell", methods=["GET", "POST"])
