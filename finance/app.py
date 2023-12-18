@@ -113,7 +113,6 @@ def quote():
 @app.route("/register", methods=["GET", "POST"])
 def register():
     """Register user"""
-
     session.clear()
 
     if request.method == "POST":
@@ -133,33 +132,27 @@ def register():
         elif request.form.get("password") != request.form.get("confirmation"):
             return apology("Passwords do not match", 400)
 
-        # Insert additional registration logic here
-        # ...
+        # Check if username already exists
+        rows = db.execute("SELECT * FROM users WHERE username = ?", request.form.get("username"))
+        if len(rows) != 0:
+            return apology("Username already exists", 400)
 
-        # Redirect to login or another page upon successful registration
-        return redirect("/login")  # for example
+        # Insert new user into the database
+        db.execute("INSERT INTO users (username, hash) VALUES (?, ?)",
+                   request.form.get("username"), generate_password_hash(request.form.get("password")))
 
-    # Render registration form if method is GET
+        # Query database for the user
+        rows = db.execute("SELECT * FROM users WHERE username = ?", request.form.get("username"))
+
+        # Remember which user has logged in
+        session["user_id"] = rows[0]["id"]
+
+        # Redirect user to home page
+        return redirect("/")
+
+    # User reached route via GET
     else:
         return render_template("register.html")
-
-     #Insert new user into database
-
-    db.execute("INSERT INTO users (username,hash) VALUES(?,?))",
-               request.form.get("username"), generate_password_hash(request.form.get("password")))
-
-    #Query database from user
-    rows = db.execute("SELECT * FROM users WHERE username = ?",request.form.get("username"))
-
-    if len(rows) !=0:
-        return apology("username already exists shmuck", 400)
-    session["user_id"] = rows[0]["id"]
-
-    return redirect("/")
-
-
-  else:
-return render_template("register.html")
 
 
 @app.route("/sell", methods=["GET", "POST"])
