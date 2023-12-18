@@ -153,7 +153,13 @@ def register():
 
     if len(rows) !=0:
         return apology("username already exists shmuck", 400)
-    
+    session["user_id"] = rows[0]["id"]
+
+    return redirect("/")
+
+
+  else:
+return render_template("register.html")
 
 
 @app.route("/sell", methods=["GET", "POST"])
