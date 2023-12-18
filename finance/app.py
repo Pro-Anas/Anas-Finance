@@ -151,6 +151,10 @@ def register():
     #Query database from user
     rows = db.execute("SELECT * FROM users WHERE username = ?",request.form.get("username"))
 
+    if len(rows) !=0:
+        return apology("username already exists shmuck", 400)
+    
+
 
 @app.route("/sell", methods=["GET", "POST"])
 @login_required
