@@ -83,29 +83,41 @@ def quote():
 @app.route("/register", methods=["GET", "POST"])
 def register():
     """Register user First"""
-    session.clear()
+ session.clear()
 
+    # User reached route via POST (submitting the register form)
     if request.method == "POST":
+
+        # ensure username was submitted
         if not request.form.get("username"):
-            return apology("Must provide username", 400)
+            return apology("must provide username", 403)
+
+        # ensure password was submitted
         elif not request.form.get("password"):
-            return apology("Must provide password", 400)
-        elif not request.form.get("confirmation"):
-            return apology("Must confirm password", 400)
+            return apology("must provide password", 403)
+
+        # ensure passwords match
         elif request.form.get("password") != request.form.get("confirmation"):
-            return apology("Passwords do not match", 400)
+            return apology("passwords do not match", 403)
 
-        rows = db.execute("SELECT * FROM users WHERE username = ?", request.form.get("username"))
+        # save username and password hash in variables
+        username = request.form.get("username")
+        hash = generate_password_hash(request.form.get("password"))
+
+        # Query database to ensure username isn't already taken
+        rows = db.execute("SELECT * FROM users WHERE username = :username",
+                          username=username)
         if len(rows) != 0:
-            return apology("Username already exists", 400)
+            return apology("username is already taken", 403)
 
-        db.execute("INSERT INTO users (username, hash) VALUES (?, ?)",
-                   request.form.get("username"), generate_password_hash(request.form.get("password")))
+        # insert username and hash into database
+        db.execute("INSERT INTO users (username, hash) VALUES (:username, :hash)",
+                   username=username, hash=hash)
 
-        rows = db.execute("SELECT * FROM users WHERE username = ?", request.form.get("username"))
-        session["user_id"] = rows[0]["id"]
+        # redirect to login page
         return redirect("/")
 
+    # User reached route via GET (as by clicking a link or via redirect)
     else:
         return render_template("register.html")
 
