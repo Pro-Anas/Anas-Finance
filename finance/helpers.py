@@ -1,12 +1,8 @@
-import csv
-import datetime
-import pytz
+import os
 import requests
-import subprocess
-import urllib
-import uuid
+import urllib.parse
 
-from flask import redirect, render_template, session
+from flask import redirect, render_template, request, session
 from functools import wraps
 
 
@@ -15,7 +11,6 @@ def apology(message, code=400):
     def escape(s):
         """
         Escape special characters.
-
         https://github.com/jacebrowning/memegen#special-characters
         """
         for old, new in [("-", "--"), (" ", "-"), ("_", "__"), ("?", "~q"),
@@ -28,8 +23,7 @@ def apology(message, code=400):
 def login_required(f):
     """
     Decorate routes to require login.
-
-    http://flask.pocoo.org/docs/0.12/patterns/viewdecorators/
+    http://flask.pocoo.org/docs/1.0/patterns/viewdecorators/
     """
     @wraps(f)
     def decorated_function(*args, **kwargs):
@@ -42,34 +36,23 @@ def login_required(f):
 def lookup(symbol):
     """Look up quote for symbol."""
 
-    # Prepare API request
-    symbol = symbol.upper()
-    end = datetime.datetime.now(pytz.timezone("US/Eastern"))
-    start = end - datetime.timedelta(days=7)
-
-    # Yahoo Finance API
-    url = (
-        f"https://query1.finance.yahoo.com/v7/finance/download/{urllib.parse.quote_plus(symbol)}"
-        f"?period1={int(start.timestamp())}"
-        f"&period2={int(end.timestamp())}"
-        f"&interval=1d&events=history&includeAdjustedClose=true"
-    )
-
-    # Query API
+    # Contact API
     try:
-        response = requests.get(url, cookies={"session": str(uuid.uuid4())}, headers={"User-Agent": "python-requests", "Accept": "*/*"})
+        api_key = os.environ.get("API_KEY")
+        response = requests.get(f"https://cloud-sse.iexapis.com/stable/stock/{urllib.parse.quote_plus(symbol)}/quote?token={api_key}")
         response.raise_for_status()
+    except requests.RequestException:
+        return None
 
-        # CSV header: Date,Open,High,Low,Close,Adj Close,Volume
-        quotes = list(csv.DictReader(response.content.decode("utf-8").splitlines()))
-        quotes.reverse()
-        price = round(float(quotes[0]["Adj Close"]), 2)
+    # Parse response
+    try:
+        quote = response.json()
         return {
-            "name": symbol,
-            "price": price,
-            "symbol": symbol
+            "name": quote["companyName"],
+            "price": float(quote["latestPrice"]),
+            "symbol": quote["symbol"]
         }
-    except (requests.RequestException, ValueError, KeyError, IndexError):
+    except (KeyError, TypeError, ValueError):
         return None
 
 
