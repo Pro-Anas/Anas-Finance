@@ -83,7 +83,7 @@ def quote():
 @app.route("/register", methods=["GET", "POST"])
 def register():
     """Register user First"""
-   session.clear()
+ session.clear()
 
     # User reached route via POST (submitting the register form)
     if request.method == "POST":
