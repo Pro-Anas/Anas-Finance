@@ -80,23 +80,29 @@ def quote():
     """Get stock quote."""
     return apology("TODO")
 
-
-@app.route("/login", methods=["GET", "POST"])
-def login():
+@app.route("/register", methods=["GET", "POST"])
+def register():
     """Register user"""
     session.clear()
 
     if request.method == "POST":
         if not request.form.get("username"):
-            return apology("must provide username", 403)
+            return apology("Must provide username", 400)
         elif not request.form.get("password"):
-            return apology("must provide password", 403)
+            return apology("Must provide password", 400)
+        elif not request.form.get("confirmation"):
+            return apology("Must confirm password", 400)
+        elif request.form.get("password") != request.form.get("confirmation"):
+            return apology("Passwords do not match", 400)
 
         rows = db.execute("SELECT * FROM users WHERE username = ?", request.form.get("username"))
+        if len(rows) != 0:
+            return apology("Username already exists", 400)
 
-        if len(rows) != 1 or not check_password_hash(rows[0]["hash"], request.form.get("password")):
-            return apology("invalid username and/or password", 403)
+        db.execute("INSERT INTO users (username, hash) VALUES (?, ?)",
+                   request.form.get("username"), generate_password_hash(request.form.get("password")))
 
+        rows = db.execute("SELECT * FROM users WHERE username = ?", request.form.get("username"))
         session["user_id"] = rows[0]["id"]
         return redirect("/")
 
