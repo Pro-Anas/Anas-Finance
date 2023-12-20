@@ -38,8 +38,8 @@ def index():
 @login_required
 def buy():
     """Buy shares of stock"""
-
- if 
+ if request.method == "POST":
+ if reqest.method.form.get("symbol").upper()
 
 
 @app.route("/history")
