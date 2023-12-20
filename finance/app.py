@@ -39,7 +39,20 @@ def index():
 def buy():
     """Buy shares of stock"""
  if request.method == "POST":
- if reqest.method.form.get("symbol").upper()
+     symbol = reqest.method.form.get("symbol").upper()
+     shares = request.method.form.get("shares")
+     if not symbol:
+         return apology("must provide sybmol ya helo")
+     elif not shares ot not shares.isdigit() or int(shares) <= 0:
+         return apology(" tstabel ent, must provide a positive integer number of shares ")
+
+     quote = lookup(symbol)
+     if quote is None:
+         return apology("symbol not found")
+
+     
+
+
 
 
 @app.route("/history")
