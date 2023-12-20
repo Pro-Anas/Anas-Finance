@@ -33,36 +33,46 @@ def after_request(response):
 def index():
     """Show portfolio of stocks"""
     return apology("TODO")
-
 @app.route("/buy", methods=["GET", "POST"])
 @login_required
 def buy():
     """Buy shares of stock"""
- if request.method == "POST":
-     symbol = reqest.method.form.get("symbol").upper()
-     shares = request.method.form.get("shares")
-     if not symbol:
-         return apology("must provide sybmol ya helo")
-     elif not shares ot not shares.isdigit() or int(shares) <= 0:
-         return apology(" tstabel ent, must provide a positive integer number of shares ")
+    if request.method == "POST":
+        symbol = request.form.get("symbol").upper()
+        shares = request.form.get("shares")
+        if not symbol:
+            return apology("must provide symbol", 400)
+        elif not shares or not shares.isdigit() or int(shares) <= 0:
+            return apology("must provide a positive integer number of shares", 400)
 
-     quote = lookup(symbol)
-     if quote is None:
-         return apology("symbol not found")
+        quote = lookup(symbol)
+        if quote is None:
+            return apology("symbol not found", 400)
 
-     price = quote["price"]
-     total_cost = int(shares) * price
-     cash = db.execute("SELECT users SET cash = cash - :total_cost WHERE id = :user_id",
-                       total_cost=total_cost, user_id=session["user_id"])
+        price = quote["price"]
+        total_cost = int(shares) * price
 
-     db.execute("INSERT INTO transaction (user_id, symbol,shares,price) VALUES (:user_id, :symbol, :shares, :price)",
-                user_id=session["user_id"], symbol=symbol, shares=shares, price=price)
+        # Check if user has enough cash
+        # Fetch user's cash and then check if they have enough to buy the shares
 
-     flash(f"Bought {shares} shares of {symbol} for {usd(total_cost)}!")
-     return redirect("/")
+        user_cash = db.execute("SELECT cash FROM users WHERE id = :user_id", user_id=session["user_id"])[0]["cash"]
+        if user_cash < total_cost:
+            return apology("not enough cash", 400)
 
-   else:
-      return render_template("buy.html")
+        # Update user's cash
+        db.execute("UPDATE users SET cash = cash - :total_cost WHERE id = :user_id",
+                   total_cost=total_cost, user_id=session["user_id"])
+
+        # Insert transaction
+        db.execute("INSERT INTO transactions (user_id, symbol, shares, price) VALUES (:user_id, :symbol, :shares, :price)",
+                   user_id=session["user_id"], symbol=symbol, shares=shares, price=price)
+
+        flash(f"Bought {shares} shares of {symbol} for {usd(total_cost)}!")
+        return redirect("/")
+
+    else:
+        return render_template("buy.html")
+
 
 
 
