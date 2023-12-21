@@ -34,7 +34,7 @@ def index():
     """Show portfolio of stocks"""
 
      # Get user stocks and shares
-   stocks = db.execute("SELECT symbol, SUM(shares) as total_shares FROM transaction WHERE user_id = :user_id GROUP BY symbol HAVING total_shares > 0",
+   stocks = db.execute("SELECT symbol, SUM(shares) as total_shares FROM transaction WHERE user_id = :user_id GROUP BY symbol HAVING total_shares > 0"
                         user_id=session["user_id"])
 
      # Get user cash balance
