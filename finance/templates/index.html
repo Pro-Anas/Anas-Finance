@@ -28,7 +28,14 @@
         </tr>
         {% endfor %}
         <tr>
-            <td> </td>
+            <td colspan="4" align="right">Cash</td>
+            <td>{{ cash }}</td>
+        </tr>
+        <tr>
+
+            <td colspan="4" align="right">Total Value</td>
+            <td>{{ total_value }}</td>
         </tr>
     </tbody>
  </table>
+{% endblock %}
