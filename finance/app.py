@@ -223,7 +223,10 @@ def sell():
                     else:
                         # Get quote
                         quote = lookup(symbol)
-                        if quote is None
+                        if quote is None:
+                            return apology("symbol not found")
+                        price = quote["price"]
+                        total_sale = shares * price
 
 if __name__ == "__main__":
     app.run(debug=True)  # Set debug=False in a production environment
