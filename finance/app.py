@@ -223,7 +223,7 @@ def sell():
                     else:
                         # Get quote
                         quote = lookup(symbol)
-                        if quote
+                        if quote is None
 
 if __name__ == "__main__":
     app.run(debug=True)  # Set debug=False in a production environment
