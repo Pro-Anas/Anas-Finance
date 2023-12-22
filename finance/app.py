@@ -222,7 +222,8 @@ def sell():
                         return apology("not enough shares")
                     else:
                         # Get quote
-                        Quote
+                        quote = lookup(symbol)
+                        if quote
 
 if __name__ == "__main__":
     app.run(debug=True)  # Set debug=False in a production environment
