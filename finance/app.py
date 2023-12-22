@@ -22,7 +22,7 @@ db = SQL("sqlite:///finance.db")
 
 @app.after_request
 def after_request(response):
-    """Ensure responses aren't cached"""
+    """Ensure respconses aren't cached"""
     response.headers["Cache-Control"] = "no-cache, no-store, must-revalidate"
     response.headers["Expires"] = 0
     response.headers["Pragma"] = "no-cache"
@@ -45,7 +45,7 @@ def index():
 
     # Iterate over stocks and add price and total value
     for stock in stocks:
-        quote = lookup(stock["symbol"]) 
+        quote = lookup(stock["symbol"])
         stock["name"] = quote["name"]
         stock["price"] = quote["price"]
         stock["value"] = stock["price"] * stock["total_shares"]
