@@ -197,53 +197,46 @@ def register():
 @app.route("/sell", methods=["GET", "POST"])
 @login_required
 def sell():
-
     """Sell shares of stock"""
 
-    # Get user stock
-    stocks = db.execute("SELECT sybmol, SUM(shares) as total_shares From transactions WHERE user_id = :user_id GROUP BY symbol HAVING total_shares > 0",
-                        user_id = session["user_id"])
+    # Get user stocks
+    stocks = db.execute("SELECT symbol, SUM(shares) as total_shares FROM transactions WHERE user_id = :user_id GROUP BY symbol HAVING SUM(shares) > 0",
+                        user_id=session["user_id"])
 
-    # if the user submits the form
     if request.method == "POST":
         symbol = request.form.get("symbol").upper()
         shares = request.form.get("shares")
         if not symbol:
             return apology("must provide symbol")
-        elif not shares or not shares.isdigit() or in(shares) <= 0:
-            return apology("must provide a positive integer number of shares, ya ghabee")
+        elif not shares or not shares.isdigit() or int(shares) <= 0:
+            return apology("must provide a positive integer number of shares")
 
-        else:
-            shares = int(shares)
+        shares = int(shares)
+        stock = next((item for item in stocks if item["symbol"] == symbol), None)
+        if stock is None or stock["total_shares"] < shares:
+            return apology("not enough shares")
 
-            for stock in stocks:
-                if stock["symbol"] == symbol:
-                    if stock["total_shares"] < shares:
-                        return apology("not enough shares")
-                    else:
-                        # Get quote
-                        quote = lookup(symbol)
-                        if quote is None:
-                            return apology("symbol not found")
-                        price = quote["price"]
-                        total_sale = shares * price
+        # Get quote
+        quote = lookup(symbol)
+        if quote is None:
+            return apology("symbol not found")
+        price = quote["price"]
+        total_sale = shares * price
 
-                        # Update users table
-                        db.execute("UPDATE users SET cash = cash + :total_sale WHERE id = :user_id",
-                                   total_sale=total_sale, user_id=session[user_id"])
+        # Update users table
+        db.execute("UPDATE users SET cash = cash + :total_sale WHERE id = :user_id",
+                   total_sale=total_sale, user_id=session["user_id"])
 
-                        # ADD the sale to the history table
-                         db.exexcute("INSERT INTO transactions (user_id, symbol,shares, price) VALUES (:user_id, :symbol, :shares, :price)",
-                                     user_id=session["user_id"], symbol=symbol, shares=shares, price=price)
+        # Add the sale to the history table
+        db.execute("INSERT INTO transactions (user_id, symbol, shares, price) VALUES (:user_id, :symbol, :shares, :price)",
+                   user_id=session["user_id"], symbol=symbol, shares=-shares, price=price)
 
-                                     flash(f"Sold (shares) shares of (symbol) for (usd(total_sale))!")
-                                     return redirect("/")
+        flash(f"Sold {shares} shares of {symbol} for {usd(total_sale)}!")
+        return redirect("/")
 
-                                     return apology("symbol not found")
-
-                            #if the user visits the page
-                            else:
-                            return render_template("sell.html, stocks=stocks)
+    # Render the sell form if method is GET
+    else:
+        return render_template("sell.html", stocks=stocks)
 
 if __name__ == "__main__":
     app.run(debug=True)  # Set debug=False in a production environment
