@@ -242,7 +242,8 @@ def sell():
                                      return apology("symbol not found")
 
                             #if the user visits the page
-                            else
+                            else:
+                            return render_template("sell.html, stocks=stocks)
 
 if __name__ == "__main__":
     app.run(debug=True)  # Set debug=False in a production environment
