@@ -219,7 +219,9 @@ def sell():
             for stock in stocks:
                 if stock["symbol"] == symbol:
                     if stock["total_shares"] < shares:
-                        return apology("not)
+                        return apology("not enough shares")
+                    else:
+                        
 
 if __name__ == "__main__":
     app.run(debug=True)  # Set debug=False in a production environment
