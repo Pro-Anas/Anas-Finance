@@ -233,7 +233,7 @@ def sell():
         db.execute("INSERT INTO transactions (user_id, symbol, shares, price) VALUES (:user_id, :symbol, :shares, :price)",
                    user_id=session["user_id"], symbol=symbol, shares=-shares, price=price)
 
-        flash(f"Sold {shares} shares of {symbol} for {usd(total_sale)}!")
+        Flask(f"Sold {shares} shares of {symbol} for {usd(total_sale)}!")
         return redirect("/")
 
     # Render the sell form if method is GET
