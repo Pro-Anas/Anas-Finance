@@ -94,8 +94,7 @@ def buy():
         # Insert transaction
         db.execute("INSERT INTO transactions (user_id, symbol, shares, price) VALUES (:user_id, :symbol, :shares, :price)",
                    user_id=session["user_id"], symbol=symbol, shares=shares, price=price)
-
-        flash(f"Bought {shares} shares of {symbol} for {usd(total_cost)}!")
+        Flask(f"Bought {shares} shares of {symbol} for {usd(total_cost)}!")
         return redirect("/")
 
     else:
