@@ -209,7 +209,8 @@ def sell():
         symbol = request.form.get("symbol").upper()
         shares = request.form.get("shares")
         if not symbol:
-            return apology
+            return apology("must provide symbol")
+        elif not shares
 
 if __name__ == "__main__":
     app.run(debug=True)  # Set debug=False in a production environment
