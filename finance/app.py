@@ -201,7 +201,12 @@ def sell():
     """Sell shares of stock"""
 
     # Get user stock
-    stocks = db.execute("SELECT sybmol, SUM(shares) as total_shares From transaction)
+    stocks = db.execute("SELECT sybmol, SUM(shares) as total_shares From transactions WHERE user_id = :user_id GROUP BY symbol HAVING total_shares > 0",
+                        user_id = session["user_id"])
+
+    # if the user submits the form
+    if request.method == "POST":
+        symbol = request.form.get
 
 if __name__ == "__main__":
     app.run(debug=True)  # Set debug=False in a production environment
