@@ -232,7 +232,17 @@ def sell():
                         db.execute("UPDATE users SET cash = cash + :total_sale WHERE id = :user_id",
                                    total_sale=total_sale, user_id=session[user_id"])
 
-                                                                          
+                        # ADD the sale to the history table
+                         db.exexcute("INSERT INTO transactions (user_id, symbol,shares, price) VALUES (:user_id, :symbol, :shares, :price)",
+                                     user_id=session["user_id"], symbol=symbol, shares=shares, price=price)
+
+                                     flash(f"Sold (shares) shares of (symbol) for (usd(total_sale))!")
+                                     return redirect("/")
+
+                                     return apology("symbol not found")
+
+                            #if the user visits the page
+                            else
 
 if __name__ == "__main__":
     app.run(debug=True)  # Set debug=False in a production environment
