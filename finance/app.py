@@ -210,7 +210,14 @@ def sell():
         shares = request.form.get("shares")
         if not symbol:
             return apology("must provide symbol")
-        elif not shares
+        elif not shares or not shares.isdigit() or in(shares) <= 0:
+            return apology("must provide a positive integer number of shares, ya ghabee")
+
+        else:
+            shares - int(shares)
+
+            for stock in stocks:
+                if stock["symbol"]
 
 if __name__ == "__main__":
     app.run(debug=True)  # Set debug=False in a production environment
