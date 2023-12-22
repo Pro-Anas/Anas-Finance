@@ -197,8 +197,11 @@ def register():
 @app.route("/sell", methods=["GET", "POST"])
 @login_required
 def sell():
+
     """Sell shares of stock"""
-    return apology("TODO")
+
+    # Get user stock
+    stocks = db.execute("SELECT sybmol, SUM(shares) as total_shares From transaction)
 
 if __name__ == "__main__":
     app.run(debug=True)  # Set debug=False in a production environment
