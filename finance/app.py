@@ -228,5 +228,11 @@ def sell():
                         price = quote["price"]
                         total_sale = shares * price
 
+                        # Update users table
+                        db.execute("UPDATE users SET cash = cash + :total_sale WHERE id = :user_id",
+                                   total_sale=total_sale, user_id=session[user_id"])
+
+                                                                          
+
 if __name__ == "__main__":
     app.run(debug=True)  # Set debug=False in a production environment
