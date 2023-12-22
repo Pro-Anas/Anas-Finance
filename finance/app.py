@@ -221,7 +221,8 @@ def sell():
                     if stock["total_shares"] < shares:
                         return apology("not enough shares")
                     else:
-                        
+                        # Get quote
+                        Quote
 
 if __name__ == "__main__":
     app.run(debug=True)  # Set debug=False in a production environment
