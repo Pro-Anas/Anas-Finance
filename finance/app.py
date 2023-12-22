@@ -92,31 +92,14 @@ def buy():
                    total_cost=total_cost, user_id=session["user_id"])
 
         # Insert transaction
-   @app.route("/buy", methods=["GET", "POST"])
-@login_required
-def buy():
-    """Buy shares of stock"""
-    if request.method == "POST":
-        symbol = request.form.get("symbol").upper()  # Retrieve the stock symbol from the form and convert it to uppercase.
-        shares = request.form.get("shares")  # Retrieve the number of shares from the form.
-
-        # Validation and quote retrieval logic here...
-
-        # Assuming 'price' is obtained from the 'quote' and 'total_cost' is calculated
-        # Insert the transaction record into the 'transactions' table
         db.execute("INSERT INTO transactions (user_id, symbol, shares, price) VALUES (:user_id, :symbol, :shares, :price)",
                    user_id=session["user_id"], symbol=symbol, shares=shares, price=price)
 
-        # Flash a confirmation message
         flash(f"Bought {shares} shares of {symbol} for {usd(total_cost)}!")
-
-        # Redirect to the home page
         return redirect("/")
 
     else:
-        # Render the buy form if method is GET
         return render_template("buy.html")
-
 
 
 
