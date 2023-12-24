@@ -65,21 +65,18 @@ def index():
 @login_required
 def buy():
     """Buy shares of stock"""
+ def buy():
     if request.method == "POST":
         symbol = request.form.get("symbol").upper()
         shares = request.form.get("shares")
         if not symbol:
             return apology("must provide symbol", 400)
-        elif not shares or not shares.isdigit() or int(shares) <= 0:
+        if not shares.isdigit() or int(shares) <= 0:
             return apology("must provide a positive integer number of shares", 400)
-
-        quote = lookup(symbol)
-        if quote is None:
-            return apology("symbol not found", 400)
-
-        price = quote["price"]
-        total_cost = int(shares) * price
-
+        # Remaining logic for buying shares
+        # ...
+    else:
+        return render_template("buy.html")
         # Check if user has enough cash
         # Fetch user's cash and then check if they have enough to buy the shares
 
